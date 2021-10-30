@@ -1,3 +1,6 @@
+using System;
+using System.Text;
+
 namespace SimpleHaicToJpgConverter.UI.Console
 {
     public class ProgressWithLogsScreen
@@ -17,7 +20,7 @@ namespace SimpleHaicToJpgConverter.UI.Console
         public ProgressWithLogsScreen(double maxValue)
         {
             System.Console.CursorVisible = false;
-            System.Console.WriteLine('\n');
+            System.Console.WriteLine(System.Environment.NewLine);
 
             _consoleProgressBar = new ProgressBar(maxValue);
         }
@@ -33,6 +36,9 @@ namespace SimpleHaicToJpgConverter.UI.Console
 
                 // Print logs
                 System.Console.SetCursorPosition(0, _logPosition);
+
+                log = PrepareLogMessage(log, System.Console.WindowWidth);
+
                 System.Console.WriteLine(log);
 
                 // Print interval
@@ -47,6 +53,47 @@ namespace SimpleHaicToJpgConverter.UI.Console
                 int pbPosY = System.Console.CursorTop;
                 _consoleProgressBar.Update(value, 0, pbPosY);
             }
+        }
+
+        private static string PrepareLogMessage(string log, int consoleWidth)
+        {
+            var builder = new StringBuilder();
+            string[] lines = log.Split(Environment.NewLine);
+
+            foreach(var line in lines)
+            {
+                int diff = consoleWidth - line.Length;
+
+                if (diff == 0)
+                {
+                    builder.AppendLine(line);
+                    break;
+                }
+
+                if (diff > 0)
+                {
+                    builder.Append(line);
+                    builder.AppendLine(
+                        new string(' ', diff)
+                        );
+                }
+                else // < 0
+                {
+                    diff = -diff;
+
+                    while (diff > consoleWidth)
+                    {
+                        diff = Math.Abs(consoleWidth - diff);
+                    }
+
+                    builder.Append(line);
+                    builder.AppendLine(
+                        new string(' ', diff)
+                        );
+                }
+            }
+
+            return builder.ToString();
         }
     }
 }
