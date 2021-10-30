@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 as builder
 WORKDIR /app
 
-COPY SimpleHaicToJpgConverter/*.csproj ./SimpleHaicToJpgConverter/
+COPY SimpleHeicToJpgConverter/*.csproj ./SimpleHeicToJpgConverter/
 RUN dotnet restore /app/SimpleHeicToJpgConverter/SimpleHeicToJpgConverter.csproj
 
 COPY SimpleHeicToJpgConverter ./SimpleHeicToJpgConverter/
