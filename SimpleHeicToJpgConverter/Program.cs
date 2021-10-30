@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using SimpleHaicToJpgConverter.UI.Console;
+using SimpleHeicToJpgConverter.UI.Console;
 
-namespace SimpleHaicToJpgConverter
+namespace SimpleHeicToJpgConverter
 {
     static class Program
     {

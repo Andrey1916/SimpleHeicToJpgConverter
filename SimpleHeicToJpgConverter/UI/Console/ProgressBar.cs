@@ -1,13 +1,13 @@
 using System.Drawing;
 
-namespace SimpleHaicToJpgConverter.UI.Console
+namespace SimpleHeicToJpgConverter.UI.Console
 {
     public class ProgressBar
     {
         private static object syncObj = new object();
         public const int ElementHeight = 2;
         public const int MinValue = 0;
-        
+
         private double _max;
         private double _value;
 

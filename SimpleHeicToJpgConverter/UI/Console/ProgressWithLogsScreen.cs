@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace SimpleHaicToJpgConverter.UI.Console
+namespace SimpleHeicToJpgConverter.UI.Console
 {
     public class ProgressWithLogsScreen
     {
