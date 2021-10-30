@@ -2,7 +2,7 @@ using System.IO;
 using System.Threading.Tasks;
 using ImageMagick;
 
-namespace SimpleHaicToJpgConverter
+namespace SimpleHeicToJpgConverter
 {
     internal static class Converter
     {

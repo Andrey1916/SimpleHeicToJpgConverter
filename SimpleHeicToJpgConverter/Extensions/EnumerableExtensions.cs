@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SimpleHaicToJpgConverter
+namespace SimpleHeicToJpgConverter
 {
     internal static class EnumerableExtensions
     {
